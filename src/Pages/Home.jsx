@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../components/Header.jsx";
-import HeroSection from "../../components/HeroSection.jsx";
-import ServicePage from "../../components/services.jsx";
+import Header from "../components/Header.jsx";
+import HeroSection from "../components/HeroSection.jsx";
+import ServicePage from "../components/services.jsx";
 
 export default function Home() {
   return (
@@ -13,7 +13,6 @@ export default function Home() {
       <section id="services">
         <ServicePage />
       </section>
-      
     </div>
   );
 }
