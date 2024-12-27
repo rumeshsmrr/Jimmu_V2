@@ -1,11 +1,19 @@
 import React from "react";
+import Header from "../../components/Header.jsx";
+import HeroSection from "../../components/HeroSection.jsx";
+import ServicePage from "../../components/services.jsx";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="w-full flex justify-center font-SF_Bold text-4xl p-4 bg-primary ">
-        Welcome to Jimmu Developments
-      </h1>
+      <Header />
+      <section id="home">
+        <HeroSection />
+      </section>
+      <section id="services">
+        <ServicePage />
+      </section>
+      
     </div>
   );
 }

@@ -8,9 +8,11 @@ body {
   margin: 0;
   padding: 20px;
 
+  background-color: #FFFAF4;
+
   font-family: "SF_Regular", serif;
   letter-spacing: 2px;
-  cursor: none;
+  /* cursor: none; */
   scrollbar-width: thin; /* Firefox - allows you to set thin scrollbar */
   scrollbar-color: #6b7280 #e5e7eb; /* Firefox - thumb color, track color */
 }
