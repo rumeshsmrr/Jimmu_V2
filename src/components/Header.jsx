@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/Logo.png";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -30,7 +30,8 @@ const Header = () => {
       <nav
         className={`fixed top-0 left-0 w-full bg-transparent transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        }`} style={{ zIndex: 50 }}
+        }`}
+        style={{ zIndex: 50 }}
       >
         <div className="flex flex-col sm:flex-row items-center justify-between p-6">
           {/* Logo Section */}
