@@ -9,21 +9,21 @@ const HeroSection = () => {
   
   return (
 
-    <section className="bg-[#FFFAF4] h-screen text-center " >
+    <section className="bg-primary h-screen text-center " >
 
       <div className="max-w-4xl mx-auto pt-28 md:pt-36">
         {/* Welcome Text */}
-        <h2 className="text-md text-[#2d2d2d] uppercase tracking-widest mb-6">
+        <h2 className="text-md text-secondary uppercase tracking-widest mb-6">
           Welcome to JIMMU
         </h2>
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl font-bold text-[#2d2d2d] leading-tight">
+        <h1 className="text-4xl sm:text-5xl font-bold text-secondary leading-tight">
           We Carry Over 30 Years Of <br/>
         </h1>
 
         <div className="flex flex-row justify-center gap-3 items-center my-6">
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#2d2d2d] ">
+            <h1 className="text-4xl sm:text-5xl font-bold text-secondary ">
                 Experience
             </h1>
             <div className="flex justify-center">
@@ -43,7 +43,7 @@ const HeroSection = () => {
                   className="rounded-xl w-12 h-12"
               />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#2d2d2d] ">
+            <h1 className="text-4xl sm:text-5xl font-bold text-secondary ">
                 So You Can
             </h1>
         </div>
@@ -51,7 +51,7 @@ const HeroSection = () => {
     
         <div className="flex flex-row justify-center gap-3 items-center md:my-4">
 
-            <h1 className="text-4xl sm:text-5xl font-bold text-[#2d2d2d] ">
+            <h1 className="text-4xl sm:text-5xl font-bold text-secondary ">
                 Move Forward With Confidence  
             </h1>
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
         </p>
 
         {/* Call To Action */}
-        <button className="mt-8 bg-[#FFAA29] text-[#2d2d2d] text-lg font-semibold py-2 px-4 rounded-lg hover:bg-orange-400">
+        <button className="mt-8 bg-assent text-secondary text-lg font-semibold py-2 px-4 rounded-lg hover:bg-orange-400">
           Call Us
         </button>
       </div>

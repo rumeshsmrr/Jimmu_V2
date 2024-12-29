@@ -43,22 +43,22 @@ const Header = () => {
             <div className="bg-white shadow-md rounded-full flex items-center justify-center px-2 py-2 mt-4 sm:mt-0 mr-4">
               <ul className="flex flex-wrap justify-center gap-6 px-6">
                 <li>
-                  <a href="#home" className="text-#2d2d2d">
+                  <a href="#home" className="text-secondary">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-#2d2d2d">
+                  <a href="#services" className="text-secondary">
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#about-us" className="text-#2d2d2d">
+                  <a href="#about-us" className="text-secondary">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#blogs" className="text-#2d2d2d">
+                  <a href="#blogs" className="text-secondary">
                     Blogs
                   </a>
                 </li>
