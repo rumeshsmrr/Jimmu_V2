@@ -11,11 +11,6 @@ function App() {
   return (
     <>
       <Home />
-      <AboutUs />
-      <Blogs />
-      <ConnectWithUs />
-      <Footer />
-      <FooterBottom />
     </>
   );
 }
