@@ -46,7 +46,7 @@ const Blogs = () => {
   >
     {/* Left Section */}
     <motion.div
-      className="w-full lg:w-[60%] relative font-SF_Bold"
+      className="w-full lg:w-[65%] relative font-SF_Bold"
       initial={{ x: -100 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}

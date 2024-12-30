@@ -15,28 +15,28 @@ const ConnectWithUs = () => {
         <div className="text-left space-y-6" data-aos="fade-right">
           <h2
             className="text-[62px] font-bold text-[#2D2D2D] leading-tight"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Bold" }}
           >
             Connect with us <br />
-            <span className="text-[48px] font-bold text-[#FFAA29]">via Call or Email</span>
+            <span className="text-[48px] font-bold text-[#FFAA29]" style={{ fontFamily: "SF_Bold" }}>via Call or Email</span>
           </h2>
           <p
             className="text-[20px] font-bold text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Bold" }}
           >
             Have questions?
           </p>
           <p
             className="text-[20px] text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Regular" }}
           >
             Don’t hesitate to call or email us, we’d love to hear from you!
           </p>
           <div className="flex gap-6" data-aos="zoom-in">
-            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition">
+            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition" style={{ fontFamily: "SF_Medium" }}>
               Call Us
             </button>
-            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition">
+            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition" style={{ fontFamily: "SF_Medium" }}>
               Email Us
             </button>
           </div>
