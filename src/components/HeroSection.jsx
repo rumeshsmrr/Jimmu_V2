@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import hero1 from "../assets/images/hero1.png";
 import hero2 from "../assets/images/hero2.png";
@@ -9,6 +9,22 @@ import Arrow2 from "../assets/images/arrow2.png";
 const HeroSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { triggerOnce: false, threshold: 0.2 });
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+
+  const handleCallClick = () => {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detect if the user is on mobile
+    if (isMobile) {
+      // Open the phone app
+      window.location.href = "tel:+1234567890";
+    } else {
+      // Show the popup on desktop
+      setShowPopup(true);
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   const textVariant = {
     hidden: { y: "100%", opacity: 0 },
@@ -43,7 +59,7 @@ const HeroSection = () => {
         {/* Main Heading */}
         <div className="overflow-hidden pb-5">
           <motion.h1
-            className="text-4xl sm:text-6xl font-bold text-secondary leading-tight"
+            className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -55,7 +71,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-4 items-center my-6">
           <div className="overflow-hidden pb-1">
             <motion.h1
-              className="text-4xl sm:text-6xl font-bold text-secondary leading-tight"
+              className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
               variants={textVariant}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -68,7 +84,7 @@ const HeroSection = () => {
             <motion.img
               src={hero1}
               alt="Experience 1"
-              className="w-14 sm:w-16 h-auto z-10 relative"
+              className="w-12 sm:w-14 md:w-16 h-auto z-10 relative"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -80,7 +96,7 @@ const HeroSection = () => {
             <motion.img
               src={hero2}
               alt="Experience 2"
-              className="w-14 sm:w-16 relative z-20 -ml-8"
+              className="w-12 sm:w-14 md:w-16 relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -92,7 +108,7 @@ const HeroSection = () => {
             <motion.img
               src={hero3}
               alt="Experience 3"
-              className="w-14 sm:w-16 relative z-20 -ml-8"
+              className="w-12 sm:w-14 md:w-16 relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -105,7 +121,7 @@ const HeroSection = () => {
 
           <div className="overflow-hidden pb-1">
             <motion.h1
-              className="text-4xl sm:text-6xl font-bold text-secondary leading-tight"
+              className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
               variants={textVariant}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -118,7 +134,7 @@ const HeroSection = () => {
         <div className="flex justify-center gap-2 items-center ">
           <div className="overflow-hidden pb-1">
             <motion.h1
-              className="text-4xl sm:text-[55px] font-bold text-secondary leading-tight"
+              className="text-3xl md:text-[55px] font-bold text-secondary leading-tight"
               variants={textVariant}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -132,13 +148,13 @@ const HeroSection = () => {
             <motion.img
               src={Arrow1}
               alt="Arrow 1"
-              className="w-[50px] h-auto absolute"
+              className="w-8 sm:w-12 md:w-[50px] h-auto absolute"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
                 duration: 1.5,
                 ease: [0.22, 0.61, 0.36, 1],
-                delay: isInView ? 0.6 : 0, // Conditional delay
+                delay: isInView ? 0.6 : 0,
               }}
             />
 
@@ -146,13 +162,13 @@ const HeroSection = () => {
             <motion.img
               src={Arrow2}
               alt="Arrow 2"
-              className="w-[50px] h-auto relative"
+              className="w-8 sm:w-12 md:w-[50px] h-auto relative"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 20 } : { opacity: 0, x: -20 }}
               transition={{
                 duration: 1.7,
                 ease: [0.22, 0.61, 0.36, 1],
-                delay: isInView ? 0.8 : 0, // Conditional delay
+                delay: isInView ? 0.8 : 0,
               }}
             />
           </div>
@@ -176,10 +192,26 @@ const HeroSection = () => {
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
+            onClick={handleCallClick}
           >
             Call Us
           </motion.button>
         </div>
+
+        {/* Popup for Desktop */}
+        {showPopup && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-lg text-center">
+              <p className="text-lg ">Call us at: +1 234 567 890</p>
+              <button
+                className="mt-4 bg-assent text-secondary text-sm sm:text-lg font-semibold py-2 px-4 rounded-lg hover:bg-orange-400"
+                onClick={closePopup}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
