@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="scroll-smooth">
       {/* Section 1: About Us */}
       <motion.section
-        className="relative h-screen bg-[#FDF9F3]"
+        className="relative h-screen bg-[#FDF9F3] flex items-center justify-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -14,7 +14,7 @@ const AboutUs = () => {
         <div className="absolute top-0 left-0 p-8 z-10">
           <h1
             className="text-[80px] sm:text-[100px] md:text-[120px] lg:text-[150px] font-bold text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Bold" }}
           >
             About Us
           </h1>
@@ -22,7 +22,7 @@ const AboutUs = () => {
         <div className="absolute bottom-0 left-0 p-8 z-10">
           <h2
             className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-regular text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Regular" }}
           >
             Our Mission
           </h2>
@@ -30,9 +30,9 @@ const AboutUs = () => {
         <div className="absolute bottom-0 right-0 p-8 text-right z-10">
           <h2
             className="text-[30px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-regular text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Regular" }}
           >
-            Expert guidance <br></br> for life’s challenges
+            Expert guidance <br /> for life’s challenges
           </h2>
         </div>
         <motion.div
@@ -45,7 +45,7 @@ const AboutUs = () => {
 
       {/* Section 2: Insights and Guidance */}
       <motion.section
-        className="relative h-screen bg-[#FDF9F3] flex"
+        className="relative h-screen bg-[#FDF9F3] flex flex-col sm:flex-row"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -61,13 +61,13 @@ const AboutUs = () => {
         <div className="w-full sm:w-1/2 p-4 sm:p-8 flex flex-col justify-center z-10">
           <h2
             className="text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-medium text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Medium" }}
           >
             Providing expert insights and practical guidance to support you every step of the way.
           </h2>
           <p
             className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-regular text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Regular" }}
           >
             At Jimmu Global Trusted Resources, our BLOGS section is your go-to destination for expert insights,
             practical tips, and thought-provoking content. We aim to empower you with knowledge, guiding you through
@@ -77,6 +77,7 @@ const AboutUs = () => {
         </div>
       </motion.section>
 
+      {/* Section 3: Cards */}
       <motion.section
         className="relative h-screen bg-[#FDF9F3] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 p-4 sm:p-8"
         initial={{ opacity: 0, y: 50 }}
