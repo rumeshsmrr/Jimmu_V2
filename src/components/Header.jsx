@@ -3,32 +3,26 @@ import { Link, Events } from "react-scroll";
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [activeSection, setActiveSection] = useState("home");
+  const [isVisible, setIsVisible] = useState(true); // Header visibility state
+  const [lastScrollY, setLastScrollY] = useState(0); // Track last scroll position
+  const [activeSection, setActiveSection] = useState("home"); // Active section state
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsVisible(false); // Hide on scroll down
-      } else {
-        setIsVisible(true); // Show on scroll up
-      }
+      // Toggle header visibility based on scroll direction
+      setIsVisible(!(currentScrollY > lastScrollY && currentScrollY > 50));
 
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // React Scroll Events to ensure active section works
   useEffect(() => {
+    // Register scroll events
     Events.scrollEvent.register("begin", () => {});
     Events.scrollEvent.register("end", () => {});
 
@@ -52,7 +46,7 @@ const Header = () => {
         </div>
 
         {/* Navigation Menu */}
-        <div className="flex-1 flex justify-center mt-2 sm:mr-0 md:mr-24">
+        <div className="flex-1 flex justify-center mt-2 md:mr-24">
           <div className="bg-white shadow-md rounded-full flex items-center justify-center px-4 pt-2 pb-3">
             <ul className="flex flex-wrap justify-center gap-6 px-6">
               {[
@@ -69,7 +63,7 @@ const Header = () => {
                     offset={-40}
                     spy={true}
                     onSetActive={() => setActiveSection(section.id)}
-                    className={`cursor-pointer text-secondary hover:text-secondary transition ${
+                    className={`cursor-pointer text-secondary hover:font-bold transition ${
                       activeSection === section.id ? "font-bold" : ""
                     }`}
                   >

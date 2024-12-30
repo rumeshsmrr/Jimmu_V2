@@ -22,10 +22,10 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
       }}
     >
       <section className="w-full flex items-start justify-center h-full bg-primary">
-        <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start px-4 md:px-0 h-full">
+        <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start px-2 sm:px-4 md:px-0 h-full">
           
           {/* Left Section */}
-          <div className="flex flex-row items-center md:items-start justify-between m-4 md:m-10">
+          <div className="flex flex-row items-center md:items-start justify-between m-2 sm:m-4 md:m-10">
             <h1 className="text-[100px] md:text-[200px] font-bold text-secondary leading-none">
               {number}
             </h1>
@@ -34,7 +34,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
             </p>
           </div>
           {/* Right Section */}
-          <div className="mt-6 md:mt-14 flex flex-col gap-10 md:gap-28 items-center md:items-start">
+          <div className="mt-4 sm:mt-6 md:mt-14 flex flex-col gap-8 sm:gap-10 md:gap-28 items-center md:items-start">
             <h2 className="text-xl md:text-6xl font-semibold text-secondary text-center md:text-left">
               {title}
             </h2>
@@ -137,6 +137,5 @@ const services = [
     alt: "Assets Tracing and Forfeiture",
   },
 ];
-
 
 export default ServicePage;
