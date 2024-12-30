@@ -1,42 +1,29 @@
-import React from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import service1 from "../assets/images/service1.jpg";
 import service2 from "../assets/images/service2.jpg";
 import service3 from "../assets/images/service3.jpg";
 import service4 from "../assets/images/service4.jpg";
 
-const ServiceSection = ({ number, title, description, image, alt, index }) => {
-  const { ref, inView } = useInView({ threshold: 0.5 });
-  const controls = useAnimation();
-
-  React.useEffect(() => {
-    if (inView) {
-      controls.start({
-        opacity: 1,
-        y: 0,
-        filter: "brightness(1)",
-      });
-    } else {
-      controls.start({
-        opacity: 1, 
-        y: 50,
-        filter: "brightness(1)", 
-      });
-    }
-  }, [inView, controls]);
+const ServiceSection = ({ number, title, description, image, alt, index, isDarkened }) => {
+  const brightness = isDarkened ? 0.7 : 1; // Darken if isDarkened is true
 
   return (
     <motion.div
-      ref={ref}
-      className="h-screen flex items-start justify-center"
+      className="h-screen flex items-start justify-center service-section"
       initial={{ opacity: 0, y: 50 }}
-      animate={controls}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      style={{ position: "sticky", top: 0 }}
+      style={{
+        position: "sticky",
+        top: 0,
+        filter: `brightness(${brightness})`,
+        transition: "filter 0.5s ease-in-out",
+      }}
     >
       <section className="w-full flex items-start justify-center h-full bg-primary">
         <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start px-4 md:px-0 h-full">
+          
           {/* Left Section */}
           <div className="flex flex-row items-center md:items-start justify-between m-4 md:m-10">
             <h1 className="text-[100px] md:text-[200px] font-bold text-secondary leading-none">
@@ -46,7 +33,6 @@ const ServiceSection = ({ number, title, description, image, alt, index }) => {
               (Services)
             </p>
           </div>
-
           {/* Right Section */}
           <div className="mt-6 md:mt-14 flex flex-col gap-10 md:gap-28 items-center md:items-start">
             <h2 className="text-xl md:text-6xl font-semibold text-secondary text-center md:text-left">
@@ -63,7 +49,7 @@ const ServiceSection = ({ number, title, description, image, alt, index }) => {
             </div>
 
             {/* Description */}
-            <p className="text-base md:text-[25px] text-secondary text-center md:text-left">
+            <p className="text-base font-light md:text-[25px] text-secondary text-center md:text-left pr-6">
               {description}
             </p>
           </div>
@@ -74,6 +60,31 @@ const ServiceSection = ({ number, title, description, image, alt, index }) => {
 };
 
 const ServicePage = () => {
+  const [currentSection, setCurrentSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll(".service-section");
+      let activeIndex = 0;
+
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+
+        // Check if the top of the section is entering the viewport
+        if (rect.top >= 0 && rect.top < window.innerHeight) {
+          activeIndex = index;
+        }
+      });
+
+      setCurrentSection(activeIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="relative">
       {services.map((service, index) => (
@@ -85,6 +96,7 @@ const ServicePage = () => {
           image={service.image}
           alt={service.alt}
           index={index}
+          isDarkened={index < currentSection} // Darken sections before the current one
         />
       ))}
     </div>
@@ -96,33 +108,35 @@ const services = [
     number: "1",
     title: "Investigations & Surveillance",
     description:
-      "Discreet, professional monitoring and fact-finding for legal and private matters.",
+      "Discreet, professional monitoring to uncover critical facts and evidence in complex, high-stakes divorce cases involving substantial assets or disputes.",
     image: service1,
     alt: "Investigations and Surveillance",
   },
   {
     number: "2",
-    title: "Technical security & Counter measures",
+    title: "Technical Security & Counter Measures",
     description:
-      "Advanced solutions to detect and prevent unauthorized surveillance and breaches.",
+      "Advanced solutions designed to detect unauthorized surveillance, secure sensitive information, and protect client privacy during high-profile divorce proceedings.",
     image: service2,
-    alt: "Technical security and Counter measures",
+    alt: "Technical Security and Counter Measures",
   },
   {
     number: "3",
     title: "Cyber Investigators",
     description:
-      "Expert analysis and tracking of digital crimes, data breaches, and online threats.",
+      "Expert analysis and tracking of digital activity to identify hidden financial assets, prevent fraud, and mitigate online security risks in divorce cases.",
     image: service3,
     alt: "Cyber Investigators",
   },
   {
     number: "4",
-    title: "Assets tracing & Forfeiture",
-    description: "Investigating and recovering hidden assets across jurisdictions.",
+    title: "Assets Tracing & Forfeiture",
+    description:
+      "Comprehensive investigation and recovery of concealed or misappropriated assets, ensuring fair division of wealth in international or domestic divorce settlements.",
     image: service4,
-    alt: "Assets tracing and Forfeiture",
+    alt: "Assets Tracing and Forfeiture",
   },
 ];
+
 
 export default ServicePage;
