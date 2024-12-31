@@ -7,6 +7,7 @@ import service4 from "../assets/images/service4.jpg";
 
 const ServiceSection = ({ number, title, description, image, alt, index, isDarkened }) => {
   const brightness = isDarkened ? 0.7 : 1; // Darken if isDarkened is true
+  const isServiceThree = index === 2; // Check if this is the third service
 
   return (
     <motion.div
@@ -23,19 +24,25 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
     >
       <section className="w-full flex items-start justify-center h-full bg-primary">
         <div className="max-w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start px-2 sm:px-4 md:px-0 h-full">
-          
+
           {/* Left Section */}
           <div className="flex flex-row items-center md:items-start justify-between m-2 sm:m-4 md:m-10">
-            <h1 className="text-[100px] md:text-[200px] font-bold text-secondary leading-none">
+            <h1 className="text-[100px] md:text-[350px] font-bold text-secondary leading-none pl-10">
               {number}
             </h1>
+
             <p className="text-secondary text-base md:text-lg font-semibold">
               (Services)
             </p>
           </div>
+
           {/* Right Section */}
-          <div className="mt-4 sm:mt-6 md:mt-14 flex flex-col gap-8 sm:gap-10 md:gap-28 items-center md:items-start">
-            <h2 className="text-xl md:text-6xl font-semibold text-secondary text-center md:text-left">
+          <div
+            className={`mt-4 sm:mt-6 md:mt-14 flex flex-col gap-8 sm:gap-10 md:gap-28 items-center md:items-start ${
+              isServiceThree ? "gap-8 sm:gap-10 md:gap-36" : ""
+            }`}
+          >
+            <h2 className="text-xl md:text-[4rem] leading-[5rem]  font-semibold text-secondary text-center md:text-left">
               {title}
             </h2>
 
@@ -49,7 +56,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
             </div>
 
             {/* Description */}
-            <p className="text-base font-light md:text-[25px] text-secondary text-center md:text-left pr-6">
+            <p className="text-base font-semibold leading-[1.75rem] md:text-[25px] text-secondary text-center md:text-left pr-6">
               {description}
             </p>
           </div>

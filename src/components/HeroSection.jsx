@@ -73,7 +73,7 @@ const HeroSection = () => {
           </motion.h1>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 items-center my-6">
+        <div className="flex flex-wrap justify-center gap-4 items-center mt-5 mb-3">
           <div className="overflow-hidden pb-1">
             <motion.h1
               className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
@@ -89,7 +89,7 @@ const HeroSection = () => {
             <motion.img
               src={hero1}
               alt="Experience 1"
-              className="w-12 sm:w-14 md:w-16 h-auto z-10 relative"
+              className="w-12 sm:w-14 md:w-[70px] h-auto z-10 relative"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -101,7 +101,7 @@ const HeroSection = () => {
             <motion.img
               src={hero2}
               alt="Experience 2"
-              className="w-12 sm:w-14 md:w-16 relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
+              className="w-12 sm:w-14 md:w-[70px] relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -113,7 +113,7 @@ const HeroSection = () => {
             <motion.img
               src={hero3}
               alt="Experience 3"
-              className="w-12 sm:w-14 md:w-16 relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
+              className="w-12 sm:w-14 md:w-[70px] relative z-20 -ml-4 sm:-ml-6 md:-ml-8"
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{
@@ -124,7 +124,7 @@ const HeroSection = () => {
             />
           </div>
 
-          <div className="overflow-hidden pb-1">
+          <div className="overflow-hidden">
             <motion.h1
               className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
               variants={textVariant}
@@ -137,9 +137,9 @@ const HeroSection = () => {
         </div>
 
         <div className="flex justify-center gap-2 items-center ">
-          <div className="overflow-hidden pb-1">
+          <div className="overflow-hidden">
             <motion.h1
-              className="text-3xl md:text-[55px] font-bold text-secondary leading-tight"
+              className="text-3xl md:text-[59px] font-bold text-secondary leading-tight"
               variants={textVariant}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
@@ -148,7 +148,7 @@ const HeroSection = () => {
             </motion.h1>
           </div>
 
-          <div className="flex ml-1 mt-1 p-1">
+          <div className="flex ml-1">
             {/* Arrow1 */}
             <motion.img
               src={Arrow1}
