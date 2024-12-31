@@ -4,8 +4,8 @@ import hero1 from "../assets/images/hero1.png";
 import hero2 from "../assets/images/hero2.png";
 import hero3 from "../assets/images/hero3.png";
 
-import Arrow1 from "../assets/images/arrow1.png";
-import Arrow2 from "../assets/images/arrow2.png";
+import Arrow1 from "../assets/images/Arrow1.png";
+import Arrow2 from "../assets/images/Arrow2.png";
 
 const HeroSection = () => {
   const sectionRef = useRef(null);
