@@ -48,3 +48,7 @@ body {
 .slick-list {
   overflow: visible; /* Ensures no content is cut off */
 }
+
+html {
+  scroll-behavior: smooth;
+}

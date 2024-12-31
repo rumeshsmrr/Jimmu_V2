@@ -39,7 +39,7 @@ const Blogs = () => {
   return (
     <AnimatePresence>
       <motion.section
-        className="bg-[#FDF9F3] min-h-screen w-full flex items-center justify-center px-4 sm:px-8"
+        className="bg-[#FDF9F3] min-h-screen w-full flex items-center justify-center px-4 sm:px-8 py-12"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 50 }}
@@ -126,7 +126,7 @@ const Blogs = () => {
 
           {/* Right Section */}
           <motion.div
-            className="w-full lg:w-[40%] flex flex-col gap-8 font-SF_Regular"
+            className="w-full lg:w-[35%] flex flex-col gap-8 font-SF_Regular"
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
