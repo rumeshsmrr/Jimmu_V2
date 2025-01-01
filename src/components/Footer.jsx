@@ -9,34 +9,36 @@ const ConnectWithUs = () => {
   }, []);
 
   return (
-    <section className="bg-gray-50 py-12 px-8 mt-20">
+    <section className="bg-gray-50 py-12 px-8 mt-20" style={{ fontFamily: "SF_Regular, sans-serif" }}>
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {/* Left Section: Call to Action */}
         <div className="text-left space-y-6" data-aos="fade-right">
           <h2
             className="text-[62px] font-bold text-[#2D2D2D] leading-tight"
-            style={{ fontFamily: "SF Pro Display" }}
+            style={{ fontFamily: "SF_Bold, sans-serif" }}
           >
             Connect with us <br />
-            <span className="text-[48px] font-bold text-[#FFAA29]">via Call or Email</span>
+            <span className="text-[48px] font-bold text-[#FFAA29]" style={{ fontFamily: "SF_Bold, sans-serif" }}>
+              via Call or Email
+            </span>
           </h2>
-          <p
-            className="text-[20px] font-bold text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
-          >
+          <p className="text-[20px] font-bold text-[#2D2D2D]" style={{ fontFamily: "SF_Bold, sans-serif" }}>
             Have questions?
           </p>
-          <p
-            className="text-[20px] text-[#2D2D2D]"
-            style={{ fontFamily: "SF Pro Display" }}
-          >
+          <p className="text-[20px] text-[#2D2D2D]">
             Don’t hesitate to call or email us, we’d love to hear from you!
           </p>
           <div className="flex gap-6" data-aos="zoom-in">
-            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition">
+            <button
+              className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
+              style={{ fontFamily: "SF_Medium, sans-serif" }}
+            >
               Call Us
             </button>
-            <button className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition">
+            <button
+              className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
+              style={{ fontFamily: "SF_Medium, sans-serif" }}
+            >
               Email Us
             </button>
           </div>
@@ -57,7 +59,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-[#FFAA29] py-12 px-8">
+    <footer className="bg-[#FFAA29] py-12 px-8" style={{ fontFamily: "SF_Regular, sans-serif" }}>
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* JIMMU Logo */}
         <div className="flex items-center justify-start md:w-1/3" data-aos="fade-up">
@@ -75,30 +77,38 @@ const Footer = () => {
           data-aos="fade-in"
         >
           <div>
-            <h4 className="text-[20px] font-semibold text-[#2D2D2D] mb-2">Navigate</h4>
-            <ul className="space-y-1 text-[12px]">
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
+              Navigate
+            </h4>
+            <ul className="space-y-1 text-[18px]">
               <li className="hover:text-[#2D2D2D]">Home</li>
               <li className="hover:text-[#2D2D2D]">Services</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-[20px] font-semibold text-[#2D2D2D] mb-2">Company</h4>
-            <ul className="space-y-1 text-[12px]">
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
+              Company
+            </h4>
+            <ul className="space-y-1 text-[18px]">
               <li className="hover:text-[#2D2D2D]">About Us</li>
               <li className="hover:text-[#2D2D2D]">Contact Us</li>
               <li className="hover:text-[#2D2D2D]">Career</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-[20px] font-semibold text-[#2D2D2D] mb-2">Learn</h4>
-            <ul className="space-y-1 text-[12px]">
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
+              Learn
+            </h4>
+            <ul className="space-y-1 text-[18px]">
               <li className="hover:text-[#2D2D2D]">Blog</li>
               <li className="hover:text-[#2D2D2D]">Ebooks</li>
             </ul>
           </div>
           <div>
-            <h4 className="text-[20px] font-semibold text-[#2D2D2D] mb-2">Socials</h4>
-            <ul className="space-y-1 text-[12px]">
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif**" }}>
+              Socials
+            </h4>
+            <ul className="space-y-1 text-[18px]">
               <li className="hover:text-[#2D2D2D]">Instagram</li>
               <li className="hover:text-[#2D2D2D]">Facebook</li>
               <li className="hover:text-[#2D2D2D]">X</li>
@@ -112,7 +122,7 @@ const Footer = () => {
 
 const FooterBottom = () => {
   return (
-    <div className="bg-[#2D2D2D] text-center text-[12px] text-[#FFFAF4] py-4">
+    <div className="bg-[#2D2D2D] text-center text-[12px] text-[#FFFAF4] py-4" style={{ fontFamily: "SF_Regular, sans-serif" }}>
       © JIMMU. 2024. All rights reserved. | Developed by WebMinds
     </div>
   );
