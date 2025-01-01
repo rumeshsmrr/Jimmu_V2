@@ -64,7 +64,7 @@ const Footer = () => {
         {/* JIMMU Logo */}
         <div className="flex items-center justify-start md:w-1/3" data-aos="fade-up">
           <h1
-            className="text-[96px] font-bold text-[#FFFAF4]"
+            className="text-[96px] text-[#FFFAF4]"
             style={{ fontFamily: "Carmine, serif" }}
           >
             JIMMU

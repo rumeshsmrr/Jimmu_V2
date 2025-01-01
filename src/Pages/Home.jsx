@@ -2,9 +2,11 @@ import React from "react";
 import Header from "../components/Header.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import ServicePage from "../components/services.jsx";
-import AboutUs from "../components/AboutUs";
 import Blogs from "../components/Blogs";
 import {Footer, ConnectWithUs, FooterBottom } from "../components/Footer";
+import AboutUs_Se01 from "../components/AboutUs_Se01.jsx";
+import AboutUs_Se02 from "../components/AboutUs_Se02.jsx";
+import AboutUs_Se03 from "../components/AboutUs_Se03.jsx";
 
 export default function Home() {
   return (
@@ -20,7 +22,9 @@ export default function Home() {
       </section>
 
       <section id="about-us">
-      <AboutUs />
+      <AboutUs_Se01 />
+      <AboutUs_Se02 />
+      <AboutUs_Se03 />
       </section>
 
       <section id="blogs">
