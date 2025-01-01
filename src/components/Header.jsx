@@ -1,85 +1,122 @@
 import React, { useState, useEffect } from "react";
-
+import { IoMenu } from "react-icons/io5";
+import { MdOutlineClose } from "react-icons/md";
 import logo from "../assets/images/Logo.png";
-import { Link, Events } from "react-scroll";
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(true); // Header visibility state
-  const [lastScrollY, setLastScrollY] = useState(0); // Track last scroll position
-  const [activeSection, setActiveSection] = useState("home"); // Active section state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState("home");
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    setShowHeader(lastScrollY > currentScrollY || currentScrollY <= 0);
+    setLastScrollY(currentScrollY);
+
+    const sections = ["home", "services", "about-us", "blogs"];
+    let foundActiveSection = false;
+
+    sections.forEach((section) => {
+      const sectionElement = document.getElementById(section);
+      if (sectionElement) {
+        const { top, height } = sectionElement.getBoundingClientRect();
+        if (top <= 100 && top + height > 100 && !foundActiveSection) {
+          setActiveSection(section);
+          foundActiveSection = true;
+        }
+      }
+    });
+
+    if (!foundActiveSection) {
+      setActiveSection(""); // Fallback for no active section
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Toggle header visibility based on scroll direction
-      setIsVisible(!(currentScrollY > lastScrollY && currentScrollY > 50));
-
-      setLastScrollY(currentScrollY);
-    };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  useEffect(() => {
-    // Register scroll events
-    Events.scrollEvent.register("begin", () => {});
-    Events.scrollEvent.register("end", () => {});
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-    return () => {
-      Events.scrollEvent.remove("begin");
-      Events.scrollEvent.remove("end");
-    };
-  }, []);
+  const links = [
+    { name: "Home", id: "home" },
+    { name: "Services", id: "services" },
+    { name: "About Us", id: "about-us" },
+    { name: "Blog", id: "blogs" },
+  ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full bg-transparent transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+    <header
+      className={`fixed top-0 w-full z-50 transition-transform duration-300 bg-transparent ${
+        showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
-      style={{ zIndex: 50 }}
     >
-      <div className="flex flex-col sm:flex-row items-center justify-between p-4">
+      <div className="flex items-center justify-between px-6 py-4">
         {/* Logo Section */}
         <div className="flex items-center w-[100px]">
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </div>
 
-        {/* Navigation Menu */}
-        <div className="flex-1 flex justify-center mt-2 md:mr-24">
+        {/* Nav for Desktop */}
+        <div className="hidden md:flex-1 md:flex justify-center mt-2 md:mr-24">
           <div className="bg-white shadow-md rounded-full flex items-center justify-center px-4 pt-2 pb-3">
             <ul className="flex flex-wrap justify-center gap-6 px-6">
-              {[
-                { id: "home", label: "Home" },
-                { id: "services", label: "Services" },
-                { id: "about-us", label: "About Us" },
-                { id: "blogs", label: "Blogs" },
-              ].map((section) => (
-                <li key={section.id} className="relative">
-                  <Link
-                    to={section.id}
-                    smooth={true}
-                    duration={500}
-                    offset={-40}
-                    spy={true}
-                    onSetActive={() => setActiveSection(section.id)}
-                    className={`cursor-pointer text-secondary hover:font-bold transition ${
-                      activeSection === section.id ? "font-bold" : ""
+              {links.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    onClick={() => setActiveSection(link.id)} // Manually update active section
+                    className={`relative font-medium transition ${
+                      activeSection === link.id
+                        ? "font-semibold text-secondary"
+                        : "text-secondary hover:font-semibold"
                     }`}
                   >
-                    {section.label}
-                  </Link>
-                  {activeSection === section.id && (
-                    <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[0.4rem] h-[0.4rem] rounded-full bg-secondary"></span>
-                  )}
+                    {link.name}
+                    {activeSection === link.id && (
+                      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[0.4rem] h-[0.4rem] rounded-full bg-secondary"></span>
+                    )}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? <MdOutlineClose /> : <IoMenu />}
+        </button>
       </div>
-    </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <nav className="md:hidden flex flex-col items-center space-y-4 px-6 py-4 bg-white shadow-lg">
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setActiveSection(link.id);
+              }}
+              className={`font-medium transition ${
+                activeSection === link.id
+                  ? "font-semibold text-secondary"
+                  : "text-secondary hover:font-semibold"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+      )}
+    </header>
   );
 };
 
