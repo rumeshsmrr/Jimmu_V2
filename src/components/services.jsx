@@ -51,7 +51,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
               <img
                 src={image}
                 alt={alt}
-                className="rounded-2xl shadow-md object-cover w-[250px] md:w-[350px] h-[100px] md:h-[140px]"
+                className="rounded-2xl shadow-md object-cover w-[250px] md:w-[400px] h-[100px] md:h-[180px]"
               />
             </div>
 
@@ -115,7 +115,7 @@ const services = [
     number: "1",
     title: "Investigations & Surveillance",
     description:
-      "Discreet, professional monitoring to uncover critical facts and evidence in complex, high-stakes divorce cases involving substantial assets or disputes.",
+      "Discreet, professional monitoring and fact-finding for legal and private matters.",
     image: service1,
     alt: "Investigations and Surveillance",
   },
@@ -123,7 +123,7 @@ const services = [
     number: "2",
     title: "Technical Security & Counter Measures",
     description:
-      "Advanced solutions designed to detect unauthorized surveillance, secure sensitive information, and protect client privacy during high-profile divorce proceedings.",
+      "Advanced solutions to detect and prevent unauthorized surveillance and breaches.",
     image: service2,
     alt: "Technical Security and Counter Measures",
   },
@@ -131,7 +131,7 @@ const services = [
     number: "3",
     title: "Cyber Investigators",
     description:
-      "Expert analysis and tracking of digital activity to identify hidden financial assets, prevent fraud, and mitigate online security risks in divorce cases.",
+      "Expert analysis and tracking of digital crimes, data breaches, and online threats.",
     image: service3,
     alt: "Cyber Investigators",
   },
@@ -139,7 +139,7 @@ const services = [
     number: "4",
     title: "Assets Tracing & Forfeiture",
     description:
-      "Comprehensive investigation and recovery of concealed or misappropriated assets, ensuring fair division of wealth in international or domestic divorce settlements.",
+      "Investigating and recovering hidden assets.",
     image: service4,
     alt: "Assets Tracing and Forfeiture",
   },
