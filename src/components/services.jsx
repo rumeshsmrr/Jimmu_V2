@@ -58,7 +58,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
             </div>
 
             {/* Description */}
-            <p className="text-base md:font-semibold leading-[1.4rem] md:leading-[1.75rem] md:text-[25px] text-secondary text-center md:text-left">
+            <p className="text-base md:font-semibold leading-[1.4rem] md:leading-[2rem] md:text-[25px] text-secondary text-center md:text-left">
               {description}
             </p>
           </div>
