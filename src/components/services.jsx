@@ -22,11 +22,12 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
         transition: "filter 0.5s ease-in-out",
       }}
     >
-      <section className="w-full flex items-start justify-center h-full bg-primary">
+      <section className="w-full flex items-start justify-center h-full bg-primary p-6">
 
         <div className="w-fit grid grid-cols-1 md:grid-cols-2 items-start px-2 sm:px-4 md:px-0 h-full">
 
           {/* Left Section */}
+
           <div className="flex  flex-col md:flex-row items-center md:items-start justify-between m-2 sm:m-4 md:m-10 ">
             <h1 className="text-[100px] md:text-[350px] font-bold text-secondary leading-none md:pt-0 pt-10 md:pl-10 pl-0">
               {number}
@@ -43,7 +44,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
               isServiceThree ? "gap-8 sm:gap-10 md:gap-36" : ""
             }`}
           >
-            <h2 className="text-xl md:text-[4rem] leading-[5rem]  font-semibold text-secondary text-center md:text-left">
+            <h2 className="text-3xl md:text-[4rem]  md:leading-[5rem]  font-semibold text-secondary text-center md:text-left">
               {title}
             </h2>
 
@@ -57,7 +58,7 @@ const ServiceSection = ({ number, title, description, image, alt, index, isDarke
             </div>
 
             {/* Description */}
-            <p className="text-base font-semibold leading-[1.75rem] md:text-[25px] text-secondary text-center md:text-left pr-6">
+            <p className="text-base md:font-semibold leading-[1.4rem] md:leading-[1.75rem] md:text-[25px] text-secondary text-center md:text-left">
               {description}
             </p>
           </div>
@@ -140,7 +141,7 @@ const services = [
     number: "4",
     title: "Assets Tracing & Forfeiture",
     description:
-      "Investigating and recovering hidden assets.",
+      "Investigating and recovering hidden assets across jurisdictions.",
     image: service4,
     alt: "Assets Tracing and Forfeiture",
   },
