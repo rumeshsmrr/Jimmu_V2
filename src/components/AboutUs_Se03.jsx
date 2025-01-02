@@ -16,6 +16,8 @@ const AboutUs_Se03 = () => (
         title="Comprehensive Support"
         description="We address the challenges of dividing significant assets, offering clear solutions to protect your financial interests during divorce."
         animationDelay={0.6}
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
       />
       {/* Card 2: Emotional Well-being */}
       <CustomCard
@@ -23,6 +25,8 @@ const AboutUs_Se03 = () => (
         title="Emotional Well-being"
         description="We tackle the toughest legal and financial challenges, delivering solutions that minimize stress and safeguard your future."
         animationDelay={0.8}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
       />
       {/* Card 3: Legal Guidance */}
       <CustomCard
@@ -30,16 +34,18 @@ const AboutUs_Se03 = () => (
         title="Legal Guidance"
         description="We provide customized strategies to navigate the complexities of divorce, ensuring your wealth and reputation remain secure."
         animationDelay={1.0}
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
       />
     </div>
   </motion.section>
 );
 
-const CustomCard = ({ number, title, description, animationDelay }) => (
+const CustomCard = ({ number, title, description, animationDelay, initial, whileInView }) => (
   <motion.div
     className="relative border border-black/20 dark:border-white/20 max-w-sm w-full mx-auto p-8 h-auto group flex flex-col justify-between bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-2xl"
-    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    initial={initial}
+    whileInView={whileInView}
     transition={{ duration: animationDelay, ease: "easeOut" }}
     viewport={{ once: true, amount: 0.2 }}
   >
