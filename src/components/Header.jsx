@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoMenu } from "react-icons/io5";
 import { MdOutlineClose } from "react-icons/md";
 import logo from "../assets/images/Logo.png";
 
-const Header = () => {
+const Header = ({ setOverlayVisible }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("home");
+  const mobileMenuRef = useRef(null);
 
   const handleScroll = () => {
+    if (isMobileMenuOpen) return; // Disable scroll effect when the menu is open
+
     const currentScrollY = window.scrollY;
     setShowHeader(lastScrollY > currentScrollY || currentScrollY <= 0);
     setLastScrollY(currentScrollY);
@@ -36,9 +39,28 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isMobileMenuOpen]);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMobileMenuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setIsMobileMenuOpen(false);
+        setOverlayVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMobileMenuOpen, setOverlayVisible]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setOverlayVisible(!isMobileMenuOpen);
+  };
 
   const links = [
     { name: "Home", id: "home" },
@@ -49,25 +71,25 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-transform duration-300 bg-transparent ${
+      className={`fixed top-0 w-screen z-50 transition-transform duration-300 bg-transparent ${
         showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex items-center justify-between px-6 py-4">
+      <div className="flex items-center justify-between px-8 py-8">
         {/* Logo Section */}
-        <div className="flex items-center w-[100px]">
+        <div className="flex items-center w-[80px] md:w-[100px] md:ml-10 ">
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </div>
 
         {/* Nav for Desktop */}
-        <div className="hidden md:flex-1 md:flex justify-center mt-2 md:mr-24">
+        <div className="hidden md:flex-1 md:flex justify-center mt-2 mr-[11%]">
           <div className="bg-white shadow-md rounded-full flex items-center justify-center px-4 pt-2 pb-3">
             <ul className="flex flex-wrap justify-center gap-6 px-6">
               {links.map((link) => (
                 <li key={link.id}>
                   <a
                     href={`#${link.id}`}
-                    onClick={() => setActiveSection(link.id)} // Manually update active section
+                    onClick={() => setActiveSection(link.id)}
                     className={`relative font-medium transition ${
                       activeSection === link.id
                         ? "font-semibold text-secondary"
@@ -86,23 +108,24 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={toggleMobileMenu}
-        >
+        <button className="md:hidden text-2xl" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? <MdOutlineClose /> : <IoMenu />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden flex flex-col items-center space-y-4 px-6 py-4 bg-white shadow-lg">
+        <nav
+          ref={mobileMenuRef}
+          className="md:hidden flex flex-col items-center space-y-4 px-6 py-4 bg-white shadow-lg z-50"
+        >
           {links.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
               onClick={() => {
                 setIsMobileMenuOpen(false);
+                setOverlayVisible(false);
                 setActiveSection(link.id);
               }}
               className={`font-medium transition ${

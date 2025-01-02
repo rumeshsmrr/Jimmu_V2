@@ -1,35 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import ServicePage from "../components/services.jsx";
 import AboutUs from "../components/AboutUs";
 import Blogs from "../components/Blogs";
-import {Footer, ConnectWithUs, FooterBottom } from "../components/Footer";
+import { Footer, ConnectWithUs, FooterBottom } from "../components/Footer";
 
 export default function Home() {
+  const [overlayVisible, setOverlayVisible] = useState(false);
+
   return (
-    <div>
-      <Header />
+    <div className={`relative ${overlayVisible ? "overflow-hidden" : ""}`}>
+      {/* Dark Overlay */}
+      {overlayVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+      )}
 
-      <section id="home">
-        <HeroSection />
-      </section>
+      {/* Header */}
+      <Header setOverlayVisible={setOverlayVisible} />
 
-      <section id="services">
-        <ServicePage />
-      </section>
+      {/* Main Sections */}
+      <main>
+        <section id="home">
+          <HeroSection />
+        </section>
 
-      <section id="about-us">
-      <AboutUs />
-      </section>
+        <section id="services">
+          <ServicePage />
+        </section>
 
-      <section id="blogs">
-      <Blogs />
-      </section>
+        <section id="about-us">
+          <AboutUs />
+        </section>
 
-      <ConnectWithUs />
-      <Footer />
-      <FooterBottom />
+        <section id="blogs">
+          <Blogs />
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer>
+        <ConnectWithUs />
+        <Footer />
+        <FooterBottom />
+      </footer>
     </div>
   );
 }
