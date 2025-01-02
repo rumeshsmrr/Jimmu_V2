@@ -47,20 +47,21 @@ const Blogs = () => {
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-8"
+          className="max-w-screen-xl w-full flex flex-col lg:flex-row gap-8 items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
           {/* Left Section */}
           <motion.div
-            className="w-full lg:w-[65%] relative font-SF_Bold"
+            className="w-full lg:w-[65%] md:w-[70%] sm:w-full relative font-SF_Bold"
             initial={{ x: -100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-4">BLOGS</h1>
-            <p className="text-[20px] text-lg text-[#2D2D2D] mb-8">
+            <h1 className="text-[32px] sm:text-[20px] md:text-[64px] lg:text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-8">BLOGS</h1>
+            <p className="text-[16px] sm:text-[20px] md:text-[25px] text-lg text-[#2D2D2D] mb-8">
               Explore insights and tips in our BLOGS, guiding you with care and expertise every step of the way.
             </p>
             <AnimatePresence mode="wait">
@@ -78,30 +79,32 @@ const Blogs = () => {
                     <img
                       src={blog.image}
                       alt={`Blog ${blog.id}`}
-                      className="w-full h-[400px] object-cover rounded-xl shadow-lg"
+                      className="w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover rounded-xl shadow-lg"
                     />
                     <div className="absolute top-4 left-4 bg-white text-black text-sm font-SF_Medium px-4 py-1 rounded-md shadow">
                       {blog.date}
                     </div>
                     <div className="absolute bottom-8 left-8 font-SF_Regular">
-                      <h2 className="text-xl md:text-2xl font-SF_Bold text-[#2D2D2D]">
-                        {blog.title}
-                      </h2>
+                      <div className="bg-white bg-opacity-55 p-2 rounded-md">
+                        <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-SF_Bold text-[#000000]">
+                          {blog.title}
+                        </h2>
+                      </div>
                       {!showFullContent ? (
                         <button
                           onClick={handleReadMore}
-                          className="mt-4 px-4 py-2 bg-[#FFAA29] text-white font-SF_Medium rounded-lg shadow-md hover:bg-[#FFD07E] transition"
+                          className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
                         >
                           Read More...
                         </button>
                       ) : (
                         <>
-                          <div className="bg-white bg-opacity-80 p-4 rounded-lg mt-4 overflow-y-auto max-h-[200px] shadow-lg text-sm">
+                          <div className="bg-white bg-opacity-80 p-4 rounded-lg mt-4 overflow-y-auto max-h-[300px] shadow-lg text-sm">
                             {blog.description}
                           </div>
                           <button
                             onClick={() => setShowFullContent(false)}
-                            className="mt-4 px-4 py-2 bg-[#FFAA29] text-white font-SF_Medium rounded-lg shadow-md hover:bg-[#FFD07E] transition"
+                            className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
                           >
                             Collapse
                           </button>
@@ -113,9 +116,9 @@ const Blogs = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Right Section */}
+          {/* Right Section: Square Cards */}
           <motion.div
-            className="w-full lg:w-[35%] flex flex-col gap-8 font-SF_Regular"
+            className="w-full lg:w-[35%] md:w-[30%] sm:w-full flex flex-col gap-8 font-SF_Regular"
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -125,15 +128,15 @@ const Blogs = () => {
               .map((blog) => (
                 <motion.div
                   key={blog.id}
-                  className="relative bg-[#FFE5CC] p-4 rounded-xl shadow-lg flex flex-col gap-4 cursor-pointer"
+                  className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-4 cursor-pointer h-[320px] w-full mx-auto"
                   onClick={() => handleSeeMore(blog.id)}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="text-lg font-SF_Bold text-[#2D2D2D]">
+                  <h3 className="text-[32px] font-SF_Bold text-[#2D2D2D]">
                     {blog.title}
                   </h3>
-                  <button className="mt-2 px-3 py-1 bg-[#FFFAF4] text-[#2D2D2D] text-sm font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition">
+                  <button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition w-auto">
                     See More...
                   </button>
                 </motion.div>
@@ -141,16 +144,16 @@ const Blogs = () => {
 
             {/* See More Blogs Card */}
             <motion.div
-              className="relative bg-[#FFE5CC] p-4 rounded-xl shadow-lg flex flex-col gap-4 font-SF_Regular"
+              className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-4 font-SF_Regular h-[400px] mx-auto"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <img
                 src={blogImg2}
                 alt="See More Blogs"
-                className="w-full h-[200px] object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg"
               />
-              <button className="mt-2 px-3 py-1 bg-[#FFFAF4] text-[#2D2D2D] text-sm font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition">
+              <button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition">
                 See More Blogs...
               </button>
             </motion.div>

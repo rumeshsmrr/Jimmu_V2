@@ -105,7 +105,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif**" }}>
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
               Socials
             </h4>
             <ul className="space-y-1 text-[18px]">
