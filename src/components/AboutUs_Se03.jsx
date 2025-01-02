@@ -11,57 +11,55 @@ const AboutUs_Se03 = () => (
   >
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 p-6 sm:p-8">
       {/* Card 1: Comprehensive Support */}
-      <motion.div
-        className="bg-white shadow-md p-8 space-y-4 rounded-lg relative overflow-hidden text-center flex flex-col items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="w-16 h-16 bg-[#FFAA29] rounded-full absolute -right-5 -top-5 flex items-center justify-center">
-          <p className="text-white text-lg">01</p>
-        </div>
-        <h1 className="font-bold text-[48px]">Comprehensive Support</h1>
-        <p className="text-[26px] text-zinc-500 mt-4">
-          We address the challenges of dividing significant assets, offering clear solutions to protect your financial interests during divorce.
-        </p>
-      </motion.div>
-
+      <CustomCard
+        number="01"
+        title="Comprehensive Support"
+        description="We address the challenges of dividing significant assets, offering clear solutions to protect your financial interests during divorce."
+        animationDelay={0.6}
+      />
       {/* Card 2: Emotional Well-being */}
-      <motion.div
-        className="bg-white shadow-md p-8 space-y-4 rounded-lg relative overflow-hidden text-center flex flex-col items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="w-16 h-16 bg-[#FFAA29] rounded-full absolute -right-5 -top-5 flex items-center justify-center">
-          <p className="text-white text-lg">02</p>
-        </div>
-        <h1 className="font-bold text-[48px]">Emotional Well-being</h1>
-        <p className="text-[26px] text-zinc-500 mt-4">
-          We tackle the toughest legal and financial challenges, delivering solutions that minimize stress and safeguard your future.
-        </p>
-      </motion.div>
-
+      <CustomCard
+        number="02"
+        title="Emotional Well-being"
+        description="We tackle the toughest legal and financial challenges, delivering solutions that minimize stress and safeguard your future."
+        animationDelay={0.8}
+      />
       {/* Card 3: Legal Guidance */}
-      <motion.div
-        className="bg-white shadow-md p-8 space-y-4 rounded-lg relative overflow-hidden text-center flex flex-col items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="w-16 h-16 bg-[#FFAA29] rounded-full absolute -right-5 -top-5 flex items-center justify-center">
-          <p className="text-white text-lg">03</p>
-        </div>
-        <h1 className="font-bold text-[48px]">Legal Guidance</h1>
-        <p className="text-[26px] text-zinc-500 mt-4">
-          We provide customized strategies to navigate the complexities of divorce, ensuring your wealth and reputation remain secure.
-        </p>
-      </motion.div>
+      <CustomCard
+        number="03"
+        title="Legal Guidance"
+        description="We provide customized strategies to navigate the complexities of divorce, ensuring your wealth and reputation remain secure."
+        animationDelay={1.0}
+      />
     </div>
   </motion.section>
+);
+
+const CustomCard = ({ number, title, description, animationDelay }) => (
+  <motion.div
+    className="relative border border-black/20 dark:border-white/20 max-w-sm w-full mx-auto p-8 h-auto group flex flex-col justify-between bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-2xl"
+    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: animationDelay, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    {/* Number Badge */}
+    <div className="absolute w-16 h-16 bg-[#FFAA29] rounded-full -top-5 -right-5 flex items-center justify-center shadow-lg">
+      <p className="text-white text-lg font-bold">{number}</p>
+    </div>
+
+    {/* Card Title */}
+    <div className="text-center">
+      <h2 className="text-[36px] sm:text-[48px] font-bold text-black group-hover:text-[#FFAA29] transition-colors duration-300">
+        {title}
+      </h2>
+    </div>
+
+    {/* Card Description */}
+    <p className="text-[20px] sm:text-[26px] text-gray-500 group-hover:text-[#2D2D2D] transition-colors duration-300 mt-4 text-center">
+      {description}
+    </p>
+  </motion.div>
 );
 
 export default AboutUs_Se03;

@@ -41,9 +41,9 @@ const Blogs = () => {
     <AnimatePresence>
       <motion.section
         className="bg-[#FDF9F3] min-h-screen w-full flex items-center justify-center px-4 sm:px-8 py-12"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
         <motion.div
@@ -51,14 +51,15 @@ const Blogs = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
         >
           {/* Left Section */}
           <motion.div
             className="w-full lg:w-[65%] md:w-[70%] sm:w-full relative font-SF_Bold"
-            initial={{ x: -100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h1 className="text-[32px] sm:text-[20px] md:text-[64px] lg:text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-8">BLOGS</h1>
             <p className="text-[16px] sm:text-[20px] md:text-[25px] text-lg text-[#2D2D2D] mb-8">
@@ -119,9 +120,10 @@ const Blogs = () => {
           {/* Right Section: Square Cards */}
           <motion.div
             className="w-full lg:w-[35%] md:w-[30%] sm:w-full flex flex-col gap-8 font-SF_Regular"
-            initial={{ x: 100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             {blogs
               .filter((blog) => blog.id !== activeBlog)
