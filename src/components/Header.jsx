@@ -71,11 +71,11 @@ const Header = ({ setOverlayVisible }) => {
 
   return (
     <header
-      className={`fixed top-0 w-screen z-50 transition-transform duration-300 bg-transparent ${
+      className={`fixed top-0 w-screen z-50 transition-transform duration-300  bg-primary md:bg-transparent ${
         showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex items-center justify-between px-8 py-8">
+      <div className="flex items-center justify-between px-8 py-4 md:py-8">
         {/* Logo Section */}
         <div className="flex items-center w-[80px] md:w-[100px] md:ml-10 ">
           <img src={logo} alt="Logo" className="w-full h-auto" />
@@ -117,7 +117,7 @@ const Header = ({ setOverlayVisible }) => {
       {isMobileMenuOpen && (
         <nav
           ref={mobileMenuRef}
-          className="md:hidden flex flex-col items-center space-y-4 px-6 py-4 bg-white shadow-lg z-50"
+          className="md:hidden flex flex-col items-center space-y-4 px-6 py-4 bg-primary shadow-lg z-50"
         >
           {links.map((link) => (
             <a

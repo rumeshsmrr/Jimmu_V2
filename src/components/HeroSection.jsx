@@ -45,7 +45,7 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-primary w-full min-h-screen text-center flex items-center justify-center  relative z-10"
+      className="bg-primary w-full min-h-screen text-center flex  relative "
     >
       <div className=" max-w-4xl mx-auto pt-20 md:pt-36">
         {/* Welcome Text */}
