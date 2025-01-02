@@ -45,13 +45,13 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-primary min-h-screen text-center px-4 sm:px-8 relative z-10"
+      className="bg-primary w-full min-h-screen text-center  relative z-10"
     >
-      <div className="max-w-4xl mx-auto pt-32 md:pt-36">
+      <div className=" max-w-4xl mx-auto pt-20 md:pt-36">
         {/* Welcome Text */}
-        <div className="overflow-hidden pb-1">
+        <div className="overflow-hidden">
           <motion.h2
-            className="text-md sm:text-lg text-secondary uppercase tracking-widest mb-6 leading-relaxed"
+            className="text-md sm:text-lg text-secondary tracking-widest mb-6 leading-relaxed"
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -62,9 +62,9 @@ const HeroSection = () => {
 
         {/* Main Heading */}
 
-        <div className="overflow-hidden pb-5">
+        <div className="overflow-hidden p-1">
           <motion.h1
-            className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
+            className="text-[29px] md:text-6xl font-bold text-secondary leading-[2.25rem]"
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -73,7 +73,7 @@ const HeroSection = () => {
           </motion.h1>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 items-center mt-5 mb-3">
+        <div className="flex md:flex-row flex-col justify-center gap-4 items-center mt-2 mb-1 md:mt-5 md:mb-3">
           <div className="overflow-hidden pb-1">
             <motion.h1
               className="text-3xl md:text-6xl font-bold text-secondary leading-tight"
@@ -85,7 +85,7 @@ const HeroSection = () => {
             </motion.h1>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center relative bg-primary gap-2">
+          <div className="flex justify-center items-center relative bg-primary gap-2">
             <motion.img
               src={hero1}
               alt="Experience 1"
@@ -136,7 +136,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 items-center ">
+        <div className="flex md:flex-row flex-col justify-center gap-2 items-center ">
           <div className="overflow-hidden">
             <motion.h1
               className="text-3xl md:text-[59px] font-bold text-secondary leading-tight"
@@ -144,46 +144,61 @@ const HeroSection = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              Move Forward With Confidence
+              Move Forward With
             </motion.h1>
           </div>
 
-          <div className="flex ml-1">
-            {/* Arrow1 */}
-            <motion.img
-              src={Arrow1}
-              alt="Arrow 1"
-              className="w-8 sm:w-12 md:w-[50px] h-auto absolute"
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{
-                duration: 1.5,
-                ease: [0.22, 0.61, 0.36, 1],
-                delay: isInView ? 0.6 : 0,
-              }}
-            />
+          <div className="flex flex-row items-center justify-center">
+          <div className="overflow-hidden">
+            <motion.h1
+                className="text-3xl md:text-[59px] font-bold text-secondary leading-tight"
+                variants={textVariant}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+              >
+                Confidence
+              </motion.h1>
+            </div>
 
-            {/* Arrow2 */}
-            <motion.img
-              src={Arrow2}
-              alt="Arrow 2"
-              className="w-8 sm:w-12 md:w-[50px] h-auto relative"
-              initial={{ opacity: 0, x: -20 }}
-              animate={
-                isInView ? { opacity: 1, x: 20 } : { opacity: 0, x: -20 }
-              }
-              transition={{
-                duration: 1.7,
-                ease: [0.22, 0.61, 0.36, 1],
-                delay: isInView ? 0.8 : 0,
-              }}
-            />
+            <div className="flex ml-2">
+              {/* Arrow1 */}
+              <motion.img
+                src={Arrow1}
+                alt="Arrow 1"
+                className="w-8 sm:w-12 md:w-[50px] h-auto absolute"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{
+                  duration: 1.5,
+                  ease: [0.22, 0.61, 0.36, 1],
+                  delay: isInView ? 0.6 : 0,
+                }}
+              />
+
+              {/* Arrow2 */}
+              <motion.img
+                src={Arrow2}
+                alt="Arrow 2"
+                className="w-8 sm:w-12 md:w-[50px] h-auto relative"
+                initial={{ opacity: 0, x: -20 }}
+                animate={
+                  isInView ? { opacity: 1, x: 20 } : { opacity: 0, x: -20 }
+                }
+                transition={{
+                  duration: 1.7,
+                  ease: [0.22, 0.61, 0.36, 1],
+                  delay: isInView ? 0.8 : 0,
+                }}
+              />
+            </div>
+
+
           </div>
         </div>
 
-        <div className="overflow-hidden pb-1">
+        <div className="overflow-hidden p-1">
           <motion.p
-            className="text-sm sm:text-lg text-gray-600 font-normal mx-1 md:mt-12 md:mb-2 leading-relaxed"
+            className="text-sm sm:text-lg text-gray-600 font-normal mt-8 md:mt-12 md:mb-2 leading-relaxed "
             variants={textVariant}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
