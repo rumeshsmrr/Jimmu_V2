@@ -1,7 +1,20 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 const AboutUs_Se01 = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".target-element", {
+    scrollTrigger: {
+      trigger: ".target-element",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: 2, // Higher values make the scroll slower
+    },
+    x: 500,
+  });
+
   const ref = useRef(null);
   const isInView = useInView(ref, { threshold: [0.2, 1], once: false });
 
@@ -54,9 +67,9 @@ const AboutUs_Se01 = () => {
             : { y: 200, opacity: 0 }
         }
         transition={{
-          duration: 2,
+          duration: 3, // Increase total duration
           ease: "easeInOut",
-          times: [0, 0.4, 1], // Timing for the keyframes
+          times: [0, 0.6, 1], // 60% of the duration spent in the middle
         }}
       />
     </motion.section>
