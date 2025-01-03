@@ -15,15 +15,18 @@ export default function Home() {
 
   return (
     <div className={`relative ${overlayVisible ? "overflow-hidden" : ""}`}>
-      {/* Dark Overlay */}
-      {overlayVisible && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>
-      )}
 
       {/* Header */}
       <Header setOverlayVisible={setOverlayVisible} />
 
-      {/* Main Sections */}
+      {/* Dark Overlay */}
+      {overlayVisible && (
+        <div
+          className="fixed inset-0 bg-secondary bg-opacity-50 z-40 pointer-events-none"
+        ></div>
+      )}
+
+
       <main>
         <section id="home">
           <HeroSection />
@@ -46,7 +49,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
+
       <footer>
         <ConnectWithUs />
         <Footer />
