@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const AboutUs_Se01 = () => (
   <motion.section
-    className="relative min-h-screen bg-gradient-to-r from-[#FDF9F3] to-[#FFFAF0] flex items-center justify-center"
+    className="relative min-h-screen bg-gradient-to-r from-[#FFFAF4] to-[#FFFAF4] flex items-center justify-center"
     initial={{ opacity: 0, scale: 0.95 }}
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.95 }}

@@ -8,6 +8,7 @@ import blogImg2 from "../assets/images/SmBlog.jpg";
 const Blogs = () => {
   const [activeBlog, setActiveBlog] = useState(1); // State to handle active blog
   const [showFullContent, setShowFullContent] = useState(false); // State to toggle full content
+  const [showMessage, setShowMessage] = useState(false); // State to manage message visibility
 
   const blogs = [
     {
@@ -37,6 +38,11 @@ const Blogs = () => {
     setShowFullContent(true);
   };
 
+  // Add smooth scrolling behavior
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <AnimatePresence>
       <motion.section
@@ -47,7 +53,7 @@ const Blogs = () => {
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className="max-w-screen-xl w-full flex flex-col lg:flex-row gap-8 items-center justify-center"
+          className="max-w-screen-xl w-full flex flex-col lg:flex-row gap-8 items-end justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -60,8 +66,8 @@ const Blogs = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-[32px] sm:text-[20px] md:text-[64px] lg:text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-8">BLOGS</h1>
-            <p className="text-[16px] sm:text-[20px] md:text-[25px] text-lg text-[#2D2D2D] mb-8">
+            <h1 className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[64px] text-3xl font-SF_Bold text-[#2D2D2D] mb-4">BLOGS</h1>
+            <p className="text-[14px] sm:text-[16px] md:text-[20px] text-lg text-[#2D2D2D] mb-4">
               Explore insights and tips in our BLOGS, guiding you with care and expertise every step of the way.
             </p>
             <AnimatePresence mode="wait">
@@ -84,32 +90,36 @@ const Blogs = () => {
                     <div className="absolute top-4 left-4 bg-white text-black text-sm font-SF_Medium px-4 py-1 rounded-md shadow">
                       {blog.date}
                     </div>
-                    <div className="absolute bottom-8 left-8 font-SF_Regular">
-                      <div className="bg-white bg-opacity-55 p-2 rounded-md">
-                        <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-SF_Bold text-[#000000]">
-                          {blog.title}
-                        </h2>
+                    <div className="absolute bottom-2 left-2 right-2 font-SF_Regular">
+                      <div className=" p-2 rounded-md">
+                        {!showFullContent ? (
+                          <>
+                            <div className="bg-white bg-opacity-55 p-2 rounded-md">
+                              
+                              <h2 className="sm:text-[20px] md:text-[28px] font-SF_Bold text-[#000000]">
+                              {blog.title}
+                            </h2></div>
+                            <button
+                              onClick={handleReadMore}
+                              className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
+                            >
+                              Read More...
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <div className="bg-white bg-opacity-80 p-4 rounded-lg mt-4 overflow-y-auto max-h-[200px] shadow-lg text-sm h-[300px]">
+                              {blog.description}
+                            </div>
+                            <button
+                              onClick={() => setShowFullContent(false)}
+                              className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
+                            >
+                              Collapse
+                            </button>
+                          </>
+                        )}
                       </div>
-                      {!showFullContent ? (
-                        <button
-                          onClick={handleReadMore}
-                          className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
-                        >
-                          Read More...
-                        </button>
-                      ) : (
-                        <>
-                          <div className="bg-white bg-opacity-80 p-4 rounded-lg mt-4 overflow-y-auto max-h-[300px] shadow-lg text-sm">
-                            {blog.description}
-                          </div>
-                          <button
-                            onClick={() => setShowFullContent(false)}
-                            className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
-                          >
-                            Collapse
-                          </button>
-                        </>
-                      )}
                     </div>
                   </motion.div>
                 ))}
@@ -118,7 +128,7 @@ const Blogs = () => {
 
           {/* Right Section: Square Cards */}
           <motion.div
-            className="w-full lg:w-[35%] md:w-[30%] sm:w-full flex flex-col gap-8 font-SF_Regular"
+            className="w-full lg:w-[35%] md:w-[30%] sm:w-full flex flex-col gap-8 items-end font-SF_Regular"
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -128,15 +138,15 @@ const Blogs = () => {
               .map((blog) => (
                 <motion.div
                   key={blog.id}
-                  className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-4 cursor-pointer h-[320px] w-full mx-auto"
+                  className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-2 justify-between cursor-pointer h-[250px] w-full mx-auto"
                   onClick={() => handleSeeMore(blog.id)}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="text-[32px] font-SF_Bold text-[#2D2D2D]">
+                  <h3 className="sm:text-[20px] font-SF_Bold text-[#2D2D2D]">
                     {blog.title}
                   </h3>
-                  <button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition w-auto">
+                  <button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[14px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition w-auto">
                     See More...
                   </button>
                 </motion.div>
@@ -144,18 +154,25 @@ const Blogs = () => {
 
             {/* See More Blogs Card */}
             <motion.div
-              className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-4 font-SF_Regular h-[400px] mx-auto"
+              className="relative bg-[#FFDBA5] p-4 rounded-lg shadow-lg flex flex-col gap-2 font-SF_Regular  mx-auto transition-transform duration-300 hover:scale-105"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <img
                 src={blogImg2}
                 alt="See More Blogs"
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg transition-opacity duration-300 hover:opacity-80"
               />
-              <button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition">
-                See More Blogs...
-              </button>
+              {showMessage ? (
+                <p className="mt-2 text-center text-[#2D2D2D] font-semibold">No more Blogs</p>
+              ) : (
+                <button 
+                  onClick={() => setShowMessage(true)}
+                  className="mt-2 px-4 py-2 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-lg shadow-md hover:bg-[#FFAA29] transition duration-300"
+                >
+                  See More Blogs...
+                </button>
+              )}
             </motion.div>
           </motion.div>
         </motion.div>
