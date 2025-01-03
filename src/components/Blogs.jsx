@@ -38,6 +38,11 @@ const Blogs = () => {
     setShowFullContent(true);
   };
 
+  // Add smooth scrolling behavior
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <AnimatePresence>
       <motion.section

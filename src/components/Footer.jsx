@@ -28,26 +28,31 @@ const ConnectWithUs = () => {
           <p className="text-[20px] text-[#2D2D2D]">
             Don’t hesitate to call or email us, we’d love to hear from you!
           </p>
-          <div className="flex gap-6" data-aos="zoom-in">
-            <button
-              className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
-              style={{ fontFamily: "SF_Medium, sans-serif" }}
-            >
-              Call Us
-            </button>
-            <button
-              className="px-8 py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
-              style={{ fontFamily: "SF_Medium, sans-serif" }}
-            >
-              Email Us
-            </button>
-          </div>
+          <div className="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-start" data-aos="zoom-in">
+  <button
+    className="px-6 py-3 md:px-8 md:py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] md:text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
+    style={{ fontFamily: "SF_Medium, sans-serif" }}
+  >
+    Call Us
+  </button>
+  <button
+    className="px-6 py-3 md:px-8 md:py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] md:text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
+    style={{ fontFamily: "SF_Medium, sans-serif" }}
+  >
+    Email Us
+  </button>
+</div>
+
         </div>
 
         {/* Right Section: Image */}
-        <div className="flex justify-center md:justify-end" data-aos="fade-left">
-          <img src={ctaImage} alt="Customer Support" className="w-full max-w-xs md:max-w-md lg:max-w-lg rounded-xl shadow-lg" />
-        </div>
+<div className="flex justify-center md:justify-end" data-aos="fade-left">
+  <img
+    src={ctaImage}
+    alt="Customer Support"
+    className="w-full max-w-sm md:max-w-lg lg:max-w-xl rounded-xl shadow-lg"
+  />
+</div>
       </div>
     </section>
   );
@@ -77,10 +82,10 @@ const Footer = () => {
           data-aos="fade-in"
         >
           <div className="mb-4 md:mb-0">
-            <h4 className="text-[20px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
+            <h4 className="text-[25px] font-semibold text-[#2D2D2D] mb-2" style={{ fontFamily: "SF_Bold, sans-serif" }}>
               Navigate
             </h4>
-            <ul className="space-y-1 text-[16px]">
+            <ul className="space-y-1 text-[18px]">
               <li className="hover:text-[#2D2D2D]">Home</li>
               <li className="hover:text-[#2D2D2D]">Services</li>
             </ul>
