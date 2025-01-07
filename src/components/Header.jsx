@@ -66,7 +66,7 @@ const Header = ({ setOverlayVisible }) => {
     { name: "Home", id: "home" },
     { name: "Services", id: "services" },
     { name: "About Us", id: "about-us" },
-    { name: "Blog", id: "blogs" },
+    { name: "Blogs", id: "blogs" },
   ];
 
   return (
