@@ -67,9 +67,9 @@ const Blogs = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex">
-              <h1 className="text-[24px] sm:text-[28px] md:text-[32px] lg:text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-4">BLOGS</h1>
-              <p className="text-[14px] sm:text-[16px] md:text-[18px] text-lg text-[#2D2D2D] font-SF_Regular mb-4 ml-6">
+            <div className="flex flex-col md:flex-row mb-4">
+              <h1 className="text-[28px] md:text-[32px] lg:text-[96px] text-3xl font-SF_Bold text-[#2D2D2D] mb-4">BLOGS</h1>
+              <p className="text-sm md:text-[18px] text-[#2D2D2D] font-SF_Regular mb-4 md:ml-6">
                 Explore insights and tips in our BLOGS, guiding you with care and expertise every step of the way.
               </p>
             </div>
@@ -80,7 +80,7 @@ const Blogs = () => {
                 .map((blog) => (
                   <motion.div
                     key={blog.id}
-                    className="relative"
+                    className="relative h-fit"
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 50 }}
@@ -89,7 +89,7 @@ const Blogs = () => {
                     <img
                       src={blog.image}
                       alt={`Blog ${blog.id}`}
-                      className="w-full  sm:h-[400px] md:h-[600px] object-cover rounded-3xl shadow-lg"
+                      className="w-full h-[320px] md:h-[600px] object-cover rounded-3xl shadow-lg"
                     />
                     <div className="absolute top-4 left-4 bg-white text-black text-sm font-SF_Medium px-4 py-1 rounded-3xl shadow">
                       {blog.date}
@@ -98,8 +98,8 @@ const Blogs = () => {
                       <div className="p-2 rounded-md flex flex-col items-end">
                         {!showFullContent ? (
                           <>
-                            <div className="bg-white bg-opacity-55 p-2 rounded-3xl">
-                              <h2 className="sm:text-[20px] md:text-[28px] font-SF_Bold text-[#000000]">
+                            <div className="bg-white bg-opacity-55 p-2 rounded-3xl flex justify-center">
+                              <h2 className="sm:text-[20px] md:text-[28px] w-fit pl-2 font-SF_Bold text-[#000000]">
                                 {blog.title}
                               </h2>
                             </div>
@@ -107,7 +107,7 @@ const Blogs = () => {
                               onClick={handleReadMore}
                               className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-2xl shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
                             >
-                              Read More...
+                              Read More
                             </button>
                           </>
                         ) : (
@@ -142,7 +142,7 @@ const Blogs = () => {
               .map((blog) => (
                 <motion.div
                   key={blog.id}
-                  className="relative bg-[#FFDBA5]  p-4 rounded-3xl shadow-lg flex flex-col gap-2 justify-between cursor-pointer h-[300px] w-full mx-auto"
+                  className="relative bg-[#FFDBA5]  p-4 rounded-2xl shadow-lg flex flex-col gap-2 justify-between cursor-pointer h-[200px] md:h-[300px] w-full mx-auto"
                   onClick={() => handleSeeMore(blog.id)}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -150,8 +150,8 @@ const Blogs = () => {
                   <h3 className="sm:text-[20px] font-SF_Bold text-[#2D2D2D]">
                     {blog.title}
                   </h3>
-                  <div className="flex justify-end"><button className="mt-2 px-3 py-1 bg-[#2D2D2D] text-[#FFFAF4] text-[14px] font-SF_Medium rounded-2xl shadow-md hover:bg-[#FFAA29] transition ">
-                    See More...
+                  <div className="flex justify-end"><button className="mt-2 px-4 py-2 bg-[#2D2D2D] text-[#FFFAF4] text-[14px] font-SF_Medium rounded-2xl shadow-md hover:bg-[#FFAA29] transition ">
+                    See More
                   </button></div>
                   
                 </motion.div>
@@ -170,13 +170,16 @@ const Blogs = () => {
               }}
             >
               {showMessage ? (
-                <p className="mt-2 text-center text-[#ffffff] font-semibold">No more Blogs</p>
+                <div className="flex justify-center">
+                  <p className="mt-2 px-5 py-2 bg-[#FFFAF4] text-[#2D2D2D] text-[16px] font-SF_Medium rounded-2xl shadow-md">No more Blogs</p>
+                </div>
+                
               ) : (
                 <div className="flex justify-center"><button
                   onClick={() => setShowMessage(true)}
-                  className="mt-2 px-5 py-2 bg-[#2D2D2D] text-[#FFFAF4] text-[16px] font-SF_Medium rounded-2xl shadow-md hover:bg-[#FFAA29] transition duration-300"
+                  className="mt-4 px-4 py-2 bg-[#ffffff] text-black font-SF_Medium rounded-2xl shadow-md hover:bg-[#FFAA29] transition text-[16px] w-auto"
                 >
-                  See More
+                  See More Blogs
                 </button></div>
 
 
