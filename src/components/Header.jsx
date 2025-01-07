@@ -66,7 +66,7 @@ const Header = ({ setOverlayVisible }) => {
     { name: "Home", id: "home" },
     { name: "Services", id: "services" },
     { name: "About Us", id: "about-us" },
-    { name: "Blog", id: "blogs" },
+    { name: "Blogs", id: "blogs" },
   ];
 
   return (
@@ -77,7 +77,7 @@ const Header = ({ setOverlayVisible }) => {
     >
       <div className="flex items-center justify-between px-8 py-4 md:py-8">
         {/* Logo Section */}
-        <div className="flex items-center w-[80px] md:w-[100px] md:ml-10 ">
+        <div className="flex items-center w-[80px] md:w-[100px] md:ml-10">
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </div>
 
