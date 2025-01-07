@@ -1,19 +1,19 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
 const AboutUs_Se01 = () => {
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".target-element", {
-    scrollTrigger: {
-      trigger: ".target-element",
-      start: "top 80%",
-      end: "bottom 20%",
-      scrub: 2, // Higher values make the scroll slower
-    },
-    x: 500,
-  });
+  // gsap.to(".target-element", {
+  //   scrollTrigger: {
+  //     trigger: ".target-element",
+  //     start: "top 80%",
+  //     end: "bottom 20%",
+  //     scrub: 2, // Higher values make the scroll slower
+  //   },
+  //   x: 500,
+  // });
 
   const ref = useRef(null);
   const isInView = useInView(ref, { threshold: [0.5], once: false });

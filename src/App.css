@@ -19,6 +19,16 @@ body {
   scrollbar-color: #6b7280 #e5e7eb; /* Firefox - thumb color, track color */
 }
 
+.borderTop {
+  border-top: 1px solid #1b1b1b;
+}
+.borderLeft {
+  border-left: 1px solid #1b1b1b;
+}
+.borderRight {
+  border-right: 1px solid #1b1b1b;
+}
+
 /* Chrome, Edge, and Safari */
 ::-webkit-scrollbar {
   width: 12px; /* Width of the entire scrollbar */
