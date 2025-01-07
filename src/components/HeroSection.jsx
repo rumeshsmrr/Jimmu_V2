@@ -19,7 +19,7 @@ const HeroSection = () => {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detect if the user is on mobile
     if (isMobile) {
       // Open the phone app
-      window.location.href = "tel:+1234567890";
+      window.location.href = "tel:+447983637117";
     } else {
       // Show the popup on desktop
       setShowPopup(true);
@@ -224,7 +224,7 @@ const HeroSection = () => {
         {showPopup && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg text-center">
-              <p className="text-lg ">Call us at: +1 234 567 890</p>
+              <p className="text-lg ">Call us at: +44 7983 637117</p>
               <button
                 className="mt-4 bg-assent text-secondary text-sm sm:text-lg font-semibold py-2 px-4 rounded-lg hover:bg-orange-400"
                 onClick={closePopup}
