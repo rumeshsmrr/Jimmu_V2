@@ -30,12 +30,14 @@ const ConnectWithUs = () => {
           </p>
           <div className="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-start" data-aos="zoom-in">
   <button
+    onClick={() => window.location.href = 'tel:+447983637117'}
     className="px-6 py-3 md:px-8 md:py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] md:text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
     style={{ fontFamily: "SF_Medium, sans-serif" }}
   >
     Call Us
   </button>
   <button
+    onClick={() => window.location.href = 'mailto:damian@jimmu.global.com'}
     className="px-6 py-3 md:px-8 md:py-4 bg-[#FFFAF4] text-[#2D2D2D] text-[18px] md:text-[24px] font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-[#FFAA29] transition"
     style={{ fontFamily: "SF_Medium, sans-serif" }}
   >
