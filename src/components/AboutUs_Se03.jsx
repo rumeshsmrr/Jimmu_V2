@@ -24,7 +24,7 @@ const AboutUs_Se03 = () => (
       delay={0.6}
     />
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 borderTop p-6 sm:p-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  p-6 sm:p-8">
       {/* Card 1: Comprehensive Support */}
       <CustomCard
         number="01"
@@ -49,7 +49,7 @@ const AboutUs_Se03 = () => (
       <CustomCard
         number="03"
         title="Legal Guidance"
-        description="We provide customized strategies to navigate the complexities of divorce, ensuring your wealth and reputation remain secure."
+        description="We provide customized strategies to navigate  the complexities of divorce, ensuring your wealth and reputation remain secure."
         animationDelay={1.0}
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -69,16 +69,16 @@ const CustomCard = ({
   border,
 }) => (
   <motion.div
-    className={`relative border border-black/20 dark:border-white/20 max-w-sm w-full mx-auto p-8 h-auto group flex flex-col justify-between overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-2xl ${border}`}
+    className="relative  dark:border-white/20 max-w-sm w-full mx-auto bg-white shadow-lg  rounded-xl p-8 h-auto group flex flex-col justify-between overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-2xl ${border}"
     initial={initial}
     whileInView={whileInView}
     transition={{ duration: animationDelay, ease: "easeOut" }}
     // viewport={{ once: true, amount: 0.2 }}
   >
     {/* Number Badge */}
-    {/* <div className="absolute w-16 h-16 bg-[#FFAA29] rounded-full -top-5 -right-5 flex items-center justify-center shadow-lg">
-      <p className="text-white text-lg font-bold">{number}</p>
-    </div> */}
+    <div className="absolute w-16 h-16 bg-[#FFAA29] rounded-full -top-5 -right-5 flex items-center justify-center shadow-lg">
+      <p className="text-white text-lg font-bold pr-2 pt-2">{number}</p>
+    </div>
 
     {/* Card Title */}
     <div className="text-center">
