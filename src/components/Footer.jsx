@@ -107,7 +107,12 @@ const Footer = () => {
           >
             JIMMU
           </h1> */}
-          <img src={logo} alt="JIMMU" className="w-auto h-24" />
+          <img
+            src={logo}
+            alt="JIMMU"
+            className="w-auto h-24"
+            draggable="false"
+          />
         </div>
 
         {/* Navigation Links */}
